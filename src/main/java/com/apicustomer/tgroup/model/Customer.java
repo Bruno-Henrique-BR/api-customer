@@ -1,12 +1,12 @@
 package com.apicustomer.tgroup.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,7 +26,8 @@ public class Customer {
     private String document;
     @NotBlank
     private String phone;
-    @NotNull
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
