@@ -2,7 +2,9 @@ package com.apicustomer.tgroup.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,6 +14,8 @@ import java.util.List;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
 
     @Id
@@ -33,4 +37,5 @@ public class Customer {
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Address> addresses;
+
 }

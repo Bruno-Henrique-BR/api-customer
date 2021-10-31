@@ -1,6 +1,8 @@
 package com.apicustomer.tgroup.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -8,6 +10,8 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +22,7 @@ public class Address {
     @NotBlank
     private String street;
     @NotNull
-    private Long number;
+    private Integer number;
     @NotBlank
     private String complement;
     @NotBlank
@@ -33,6 +37,14 @@ public class Address {
     @ManyToOne
     private Customer customer;
 
-
-
+    public Address(String zipCode, String street, Integer number, String complement, String district, String city, String state, String country) {
+        this.zipCode = zipCode;
+        this.street = street;
+        this.number = number;
+        this.complement = complement;
+        this.district = district;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+    }
 }
